@@ -16,12 +16,12 @@ export const Converter = () => {
           Amount <StyledInput type="number" placeholder="1.00" />
         </StyledDiv>
         <StyledDiv className="from">
-          From <StyledInput type="text" placeholder="PLN" />
+          From <select placeholder="PLN" />
         </StyledDiv>
         <StyledSwap className="switchcurriencies"> {"swap"} </StyledSwap>
         <StyledDiv className="to">
           {" "}
-          To <StyledInput type="text" placeholder="USD" />
+          To <select placeholder="USD" />
         </StyledDiv>
         <StyledConvert className="convert Button"> Convert</StyledConvert>
       </StyledForm>
