@@ -1,14 +1,16 @@
 import React from "react";
 import { Header } from "./components/Header/Header";
-
+import { Container } from "./App.styled";
+import { Converter } from "./components/Converter/Converter";
 function App() {
   return (
-    <div className="App">
+    <Container>
       <Header />
-      <main>
-        <div>converter</div>
-      </main>
-    </div>
+
+      <Converter />
+
+      <footer>footer</footer>
+    </Container>
   );
 }
 
