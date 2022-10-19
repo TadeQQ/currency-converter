@@ -6,10 +6,7 @@ function App() {
   return (
     <Container>
       <Header />
-
       <Converter />
-
-      <footer>footer</footer>
     </Container>
   );
 }
