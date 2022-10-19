@@ -3,13 +3,13 @@ import { keyframes } from "styled-components";
 
 export const StyledHeader = styled.header`
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
+  justify-content: space-around;
   color: white;
+  border-radius: 40px;
+  margin-top: 10px;
+  padding-right: 20px;
+  font-family: sans-serif;
 `;
 const rotate = keyframes`
   from {
@@ -21,48 +21,13 @@ const rotate = keyframes`
 `;
 
 export const StyledLogo = styled.img`
-  height: 40vmin;
+  height: 100px;
   pointer-events: none;
   @media (prefers-reduced-motion: no-preference) {
     animation: ${rotate} infinite 20s linear;
   }
 `;
 
-// .App {
-//   text-align: center;
-// }
-
-// .App-logo {
-//   height: 40vmin;
-//   pointer-events: none;
-// }
-
-// @media (prefers-reduced-motion: no-preference) {
-//   .App-logo {
-//     animation: App-logo-spin infinite 20s linear;
-//   }
-// }
-
-// .App-header {
-//   background-color: #282c34;
-//   min-height: 100vh;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: calc(10px + 2vmin);
-//   color: white;
-// }
-
-// .App-link {
-//   color: #61dafb;
-// }
-
-// @keyframes App-logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }
+export const StyledH2 = styled.h2`
+  margin-top: 35px;
+`;
