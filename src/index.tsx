@@ -1,22 +1,57 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import Root from "./routes/root";
 
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Root />,
-//   },
-// ])
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  ConverterPage,
+  HistoryPage,
+  App,
+  Routes,
+  historyPageLoader,
+} from "./routes";
+
+const router = createBrowserRouter([
+  {
+    path: Routes.HOME,
+    element: <App />,
+    children: [
+      {
+        path: Routes.CONVERTER,
+        element: <ConverterPage />,
+        loader: (cos) => {
+          console.log(cos.request);
+        },
+      },
+      {
+        path: Routes.HISTORY,
+        element: <HistoryPage />,
+        loader: historyPageLoader,
+      },
+    ],
+  },
+  {
+    path: "/:cos",
+    element: <div>asd</div>,
+    loader: (args) => {
+      console.log(args.params);
+    },
+  },
+  {
+    path: "/:cos/:id",
+    element: <div>asd</div>,
+    loader: (args) => {
+      console.log(args.params);
+    },
+  },
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
