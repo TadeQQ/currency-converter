@@ -1,5 +1,30 @@
 import React from "react";
-import { StyledConverter } from "../styles/Converter.styled";
+import {
+  StyledConverter,
+  StyledForm,
+  StyledDiv,
+  StyledInput,
+  StyledSwap,
+  StyledConvert,
+} from "../styles/Converter.styled";
 export const Converter = () => {
-  return <StyledConverter>Converter</StyledConverter>;
+  return (
+    <StyledConverter>
+      <StyledForm action="">
+        <StyledDiv className="amount">
+          {" "}
+          Amount <StyledInput type="number" placeholder="1.00" />
+        </StyledDiv>
+        <StyledDiv className="from">
+          From <StyledInput type="text" placeholder="PLN" />
+        </StyledDiv>
+        <StyledSwap className="switchcurriencies"> {"swap"} </StyledSwap>
+        <StyledDiv className="to">
+          {" "}
+          To <StyledInput type="text" placeholder="USD" />
+        </StyledDiv>
+        <StyledConvert className="convert Button"> Convert</StyledConvert>
+      </StyledForm>
+    </StyledConverter>
+  );
 };
