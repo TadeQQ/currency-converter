@@ -22,9 +22,11 @@ const rotate = keyframes`
 
 export const StyledLogo = styled.img`
   height: 100px;
-  pointer-events: none;
   @media (prefers-reduced-motion: no-preference) {
     animation: ${rotate} infinite 20s linear;
+  }
+  :hover {
+    animation: none;
   }
 `;
 
