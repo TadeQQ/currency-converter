@@ -8,24 +8,24 @@ export const StyledConverter = styled.div`
   font-family: sans-serif;
 `;
 
-export const StyledForm = styled.form`
+export const Form = styled.form`
   display: flex;
   padding: 10px 5px;
 `;
 
-export const StyledDiv = styled.div`
+export const Div = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 5px;
   margin-right: 5px;
 `;
 
-export const StyledInput = styled.input`
+export const Input = styled.input`
   margin-top: 5px;
   font-size: 16px;
 `;
 
-export const StyledSwap = styled.button`
+export const Swap = styled.button`
   border-radius: 70%;
   border: none;
   background-color: #61dafb;
@@ -34,7 +34,7 @@ export const StyledSwap = styled.button`
   }
 `;
 
-export const StyledConvert = styled.button`
+export const Convert = styled.button`
   border-radius: 30%;
   border: none;
   background-color: #61dafb;

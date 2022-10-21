@@ -1,30 +1,30 @@
 import React from "react";
 import {
   StyledConverter,
-  StyledForm,
-  StyledDiv,
-  StyledInput,
-  StyledSwap,
-  StyledConvert,
+  Form,
+  Div,
+  Input,
+  Swap,
+  Convert,
 } from "../styles/Converter.styled";
 export const Converter = () => {
   return (
     <StyledConverter>
-      <StyledForm action="">
-        <StyledDiv className="amount">
+      <Form action="">
+        <Div className="amount">
           {" "}
-          Amount <StyledInput type="number" placeholder="1.00" />
-        </StyledDiv>
-        <StyledDiv className="from">
+          Amount <Input type="number" placeholder="1.00" />
+        </Div>
+        <Div className="from">
           From <select placeholder="PLN" />
-        </StyledDiv>
-        <StyledSwap className="switchcurriencies"> {"swap"} </StyledSwap>
-        <StyledDiv className="to">
+        </Div>
+        <Swap className="switchcurriencies"> {"swap"} </Swap>
+        <Div className="to">
           {" "}
           To <select placeholder="USD" />
-        </StyledDiv>
-        <StyledConvert className="convert Button"> Convert</StyledConvert>
-      </StyledForm>
+        </Div>
+        <Convert className="convert Button"> Convert</Convert>
+      </Form>
     </StyledConverter>
   );
 };
