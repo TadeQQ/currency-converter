@@ -20,7 +20,7 @@ const rotate = keyframes`
   }
 `;
 
-export const StyledLogo = styled.img`
+export const Logo = styled.img`
   height: 100px;
   @media (prefers-reduced-motion: no-preference) {
     animation: ${rotate} infinite 20s linear;
@@ -30,6 +30,6 @@ export const StyledLogo = styled.img`
   }
 `;
 
-export const StyledH2 = styled.h2`
+export const H2 = styled.h2`
   margin-top: 35px;
 `;

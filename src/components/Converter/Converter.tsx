@@ -23,7 +23,7 @@ export const Converter = () => {
           {" "}
           To <select placeholder="USD" />
         </Div>
-        <Convert className="convert Button"> Convert</Convert>
+        <Convert className="convert Button">Convert</Convert>
       </Form>
     </StyledConverter>
   );
