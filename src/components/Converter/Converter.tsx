@@ -7,14 +7,15 @@ import {
   Swap,
   Convert,
 } from "../styles/Converter.styled";
-import { CurrenciesServices } from "../../services/CurrenciesServices";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-
+import { SelectCurrency } from "../SelectCurrency/SelectCurrency";
+import { useFetchCurrencies } from "../../Hooks/useFetchCurrencies";
+import { isRegularExpressionLiteral } from "typescript";
 // handleFetchCurriencies();
 export const Converter = () => {
   // const queryClient = useQueryClient();
-  // const query = useQuery(["currencies"], CurrenciesServices.fetchAllCurrencies);
-  // console.log(query.data)
+
+  const { currencies, isLoading } = useFetchCurrencies({});
+
   // const queryArray = Object.keys(query.data);
   // const handleFetchCurriencies = async () => {
   //   const data = CurrenciesServices.fetchAllCurrencies();
@@ -25,23 +26,21 @@ export const Converter = () => {
     <StyledConverter>
       <Form action="">
         <Div className="amount">
-          {" "}
           Amount <Input type="number" placeholder="1.00" />
         </Div>
         <Div className="from">
-          From{" "}
           <select>
-            <option></option>
+            {currencies?.map(([value, name]) => (
+              <option value={value} key={value}>
+                {value} - {name}
+              </option>
+            ))}
           </select>
+          {/* From <SelectCurrency data={currencies} {...register('from')}/> */}
         </Div>
-        <div></div>
-        <Swap className="switchcurriencies"> {"swap"} </Swap>
+
         <Div className="to">
-          {" "}
-          To{" "}
-          <select>
-            <option value="USD">USD</option>
-          </select>
+          {/* To <SelectCurrency data={currencies} /> */}
         </Div>
         <Convert className="convert Button">Convert</Convert>
       </Form>

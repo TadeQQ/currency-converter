@@ -4,9 +4,9 @@ import { apiClient } from "../libs/axios";
 
 // type Obj = Record<Imiona, boolean | number>;
 
-interface FetchAllCurrenciesResponse {
+export interface FetchAllCurrenciesResponse {
   success: boolean;
-  symbols: Record<string, string>;
+  currencies: Record<string, string>;
 }
 
 const fetchAllCurrencies = async () => {
