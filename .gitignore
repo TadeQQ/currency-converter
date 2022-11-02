@@ -25,3 +25,4 @@ yarn-debug.log*
 yarn-error.log*
 src/pracaDomowa.js
 src/libs/axios.ts
+src/libs/axios.ts
