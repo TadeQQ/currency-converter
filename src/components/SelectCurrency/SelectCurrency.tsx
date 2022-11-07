@@ -16,10 +16,6 @@ import { CheckIcon, ChevronDownIcon } from "@radix-ui/react-icons";
 interface SelectCurrencyProps {
   data?: [string, string][];
 }
-interface ContentProps {
-  children?: React.ReactNode;
-}
-
 export const SelectCurrency = ({ data }: SelectCurrencyProps) => {
   console.log(data);
   return (
