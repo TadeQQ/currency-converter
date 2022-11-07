@@ -1,9 +1,5 @@
 import { apiClient } from "../libs/axios";
 
-// type Imiona = "Marek" | "Maciek";
-
-// type Obj = Record<Imiona, boolean | number>;
-
 export interface FetchAllCurrenciesResponse {
   success: boolean;
   currencies: Record<string, string>;

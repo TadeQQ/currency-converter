@@ -1,22 +1,51 @@
 import React from "react";
-import * as Select from "@radix-ui/react-select";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectItem,
+  SelectViewport,
+  StyledContent,
+  SelectPortal,
+  SelectIcon,
+  SelectItemText,
+  SelectItemIndicator,
+} from "./SelectCurrency.styled";
+import { CheckIcon, ChevronDownIcon } from "@radix-ui/react-icons";
+
 interface SelectCurrencyProps {
   data?: [string, string][];
 }
+interface ContentProps {
+  children?: React.ReactNode;
+}
 
 export const SelectCurrency = ({ data }: SelectCurrencyProps) => {
+  console.log(data);
   return (
-    <Select.Root>
-      <Select.Trigger>
-        <Select.Value>Select Currency</Select.Value>
-      </Select.Trigger>
-      <Select.Content>
-        {data?.map(([value, name]) => (
-          <Select.Item value={value}>
-            {value} - {name}
-          </Select.Item>
-        ))}
-      </Select.Content>
-    </Select.Root>
+    <Select>
+      <SelectTrigger>
+        <SelectValue placeholder="Select Currency"></SelectValue>
+        <SelectIcon>
+          <ChevronDownIcon />
+        </SelectIcon>
+      </SelectTrigger>
+      <SelectPortal>
+        <StyledContent>
+          <SelectViewport>
+            {data?.map(([value, name]) => (
+              <SelectItem value={value}>
+                <SelectItemText>
+                  {value} - {name}
+                </SelectItemText>
+                <SelectItemIndicator>
+                  <CheckIcon />
+                </SelectItemIndicator>
+              </SelectItem>
+            ))}
+          </SelectViewport>
+        </StyledContent>
+      </SelectPortal>
+    </Select>
   );
 };

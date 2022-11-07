@@ -3,7 +3,7 @@ import { useLoaderData, LoaderFunctionArgs } from "react-router-dom";
 
 export const historyPageLoader = (loaderArgs: LoaderFunctionArgs) => {
   console.log(loaderArgs.params);
-  return "cos";
+  return "historical";
 };
 
 export const HistoryPage = () => {
