@@ -17,7 +17,7 @@ export const Converter = () => {
 
   return (
     <StyledConverter>
-      <Form onSubmit={form.handleConvert(["amount", "from", "to"])}>
+      <Form onSubmit={() => console.log(query.data?.query)}>
         <Div>
           <div>Amount</div>{" "}
           <Input
