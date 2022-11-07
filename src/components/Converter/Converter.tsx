@@ -4,46 +4,40 @@ import {
   Form,
   Div,
   Input,
-  Swap,
   Convert,
 } from "../styles/Converter.styled";
 import { SelectCurrency } from "../SelectCurrency/SelectCurrency";
 import { useFetchCurrencies } from "../../Hooks/useFetchCurrencies";
-import { isRegularExpressionLiteral } from "typescript";
-// handleFetchCurriencies();
+import { useConvertCurrency } from "../../Hooks/useConvertCurrency";
+import { useForm } from "react-hook-form";
+
 export const Converter = () => {
-  // const queryClient = useQueryClient();
-
   const { currencies, isLoading } = useFetchCurrencies({});
+  const { form, query } = useConvertCurrency();
+  console.log(query.data?.query);
 
-  // const queryArray = Object.keys(query.data);
-  // const handleFetchCurriencies = async () => {
-  //   const data = CurrenciesServices.fetchAllCurrencies();
-  //   const a = await data;
-  //   console.log(a);
-  // };
   return (
     <StyledConverter>
-      <Form action="">
-        <Div className="amount">
-          Amount <Input type="number" placeholder="1.00" />
+      <Form onSubmit={() => form.handleConvert(query.data?.query)}>
+        <Div>
+          <div>Amount</div>{" "}
+          <Input
+            type="number"
+            placeholder="1.00"
+            {...form.register("amount")}
+          />
         </Div>
-        <Div className="from">
-          <select>
-            {currencies?.map(([value, name]) => (
-              <option value={value} key={value}>
-                {value} - {name}
-              </option>
-            ))}
-          </select>
-          {/* From <SelectCurrency data={currencies} {...register('from')}/> */}
+        <Div>
+          <div>From</div>
+          <SelectCurrency data={currencies} {...form.register("from")} />
         </Div>
-
-        <Div className="to">
-          {/* To <SelectCurrency data={currencies} /> */}
+        <Div>
+          <div>To</div>
+          <SelectCurrency data={currencies} {...form.register("to")} />
         </Div>
-        <Convert className="convert Button">Convert</Convert>
+        <Convert type="submit">Convert</Convert>
       </Form>
+      <div></div>
     </StyledConverter>
   );
 };

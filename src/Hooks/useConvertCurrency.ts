@@ -18,6 +18,10 @@ export const useConvertCurrency = () => {
   const handleConvert = handleSubmit((data) => {
     refetch();
   });
+  const handleError = (errors: Error) => console.error(errors);
 
-  return { form: { handleConvert, ...restForm }, query: { ...restQuery } };
+  return {
+    form: { handleConvert, handleError, ...restForm },
+    query: { ...restQuery },
+  };
 };
