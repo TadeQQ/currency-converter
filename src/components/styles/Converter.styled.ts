@@ -16,6 +16,7 @@ export const Form = styled.form`
 export const Div = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-left: 5px;
   margin-right: 5px;
 `;

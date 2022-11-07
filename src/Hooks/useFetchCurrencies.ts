@@ -27,7 +27,7 @@ export const useFetchCurrencies = ({
 
   const currencies = useMemo(() => {
     if (data) {
-      return Object.entries(data.currencies); //["AED", "asdadad"]
+      return Object.entries(data.currencies);
     }
   }, [data]);
 
