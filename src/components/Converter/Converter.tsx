@@ -14,11 +14,10 @@ import { useForm } from "react-hook-form";
 export const Converter = () => {
   const { currencies, isLoading } = useFetchCurrencies({});
   const { form, query } = useConvertCurrency();
-  console.log(query.data?.query);
 
   return (
     <StyledConverter>
-      <Form onSubmit={() => form.handleConvert(query.data?.query)}>
+      <Form onSubmit={form.handleConvert(["amount", "from", "to"])}>
         <Div>
           <div>Amount</div>{" "}
           <Input
@@ -35,7 +34,12 @@ export const Converter = () => {
           <div>To</div>
           <SelectCurrency data={currencies} {...form.register("to")} />
         </Div>
-        <Convert type="submit">Convert</Convert>
+        <Convert
+          type="submit"
+          onClick={() => form.getValues(["amount", "from", "to"])}
+        >
+          Convert
+        </Convert>
       </Form>
       <div></div>
     </StyledConverter>
