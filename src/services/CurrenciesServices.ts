@@ -13,7 +13,7 @@ const fetchAllCurrencies = async () => {
 interface ConvertCurrenciesData {
   from: string;
   to: string;
-  amount: string;
+  amount: number;
 }
 export interface ConvertCurrenciesResponse {
   date: string;
