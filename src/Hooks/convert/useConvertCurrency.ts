@@ -1,12 +1,18 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
-import { CurrenciesServices } from "../../services/CurrenciesServices";
+import {
+  CurrenciesServices,
+  ConvertCurrenciesResponse,
+} from "../../services/CurrenciesServices";
 import { ResultHandler } from "../../types/ResultHandler";
 import { useConvertCurrencyForm } from "./useConvertCurrencyForm";
 import { useState } from "react";
 
-export const useConvertCurrency = ({ onError, onSuccess }: ResultHandler) => {
+export const useConvertCurrency = ({
+  onError,
+  onSuccess,
+}: ResultHandler<ConvertCurrenciesResponse>) => {
   const [isPending, setIsPending] = useState(false);
 
   const { watch, handleSubmit, ...restForm } = useConvertCurrencyForm();
@@ -17,10 +23,15 @@ export const useConvertCurrency = ({ onError, onSuccess }: ResultHandler) => {
     (context) => CurrenciesServices.convertCurrencies({ from, to, amount }),
     {
       enabled: false,
+      onError: (err) => {
+        onError?.(err as Error);
+      },
+      onSuccess,
     }
   );
 
   const handleConvert = handleSubmit((data) => {
+    console.log("submit");
     refetch();
   });
 

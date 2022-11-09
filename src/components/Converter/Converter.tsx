@@ -8,40 +8,76 @@ import {
 } from "../styles/Converter.styled";
 import { SelectCurrency } from "../SelectCurrency/SelectCurrency";
 import { useFetchCurrencies } from "../../Hooks/useFetchCurrencies";
-import { useConvertCurrency } from "../../Hooks/useConvertCurrency";
-import { useForm } from "react-hook-form";
+import { useConvertCurrency } from "../../Hooks/convert/useConvertCurrency";
+import { useForm, Controller } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 export const Converter = () => {
+  const navigate = useNavigate();
   const { currencies, isLoading } = useFetchCurrencies({});
-  const { form, query } = useConvertCurrency();
+  const {
+    form: {
+      register,
+      handleConvert,
+      control,
+      formState: { errors },
+    },
+    query,
+  } = useConvertCurrency({
+    onError: () => console.log(errors),
+    onSuccess: (data) => {
+      navigate("/history");
+    },
+  });
 
   return (
     <StyledConverter>
-      <Form onSubmit={() => console.log(query.data?.query)}>
+      <Form onSubmit={handleConvert}>
         <Div>
-          <div>Amount</div>{" "}
+          <div>Amount</div>
           <Input
             type="number"
-            placeholder="1.00"
-            {...form.register("amount")}
+            placeholder="amount"
+            {...register("amount", { valueAsNumber: true })}
           />
+          {errors.amount?.message}
         </Div>
         <Div>
-          <div>From</div>
-          <SelectCurrency data={currencies} {...form.register("from")} />
+          <label htmlFor="from">From</label>
+          <Controller
+            control={control}
+            name="from"
+            render={({ field }) => (
+              <SelectCurrency
+                data={currencies}
+                onValueChange={(value) => field.onChange(value)}
+                {...field}
+              />
+            )}
+          />
+
+          {errors.from?.message}
         </Div>
         <Div>
-          <div>To</div>
-          <SelectCurrency data={currencies} {...form.register("to")} />
+          <label>To</label>
+          <Controller
+            control={control}
+            name="to"
+            render={({ field }) => (
+              <SelectCurrency
+                data={currencies}
+                onValueChange={(value) => field.onChange(value)}
+                {...field}
+              />
+            )}
+          />
+          {errors.to?.message}
         </Div>
-        <Convert
-          type="submit"
-          onClick={() => form.getValues(["amount", "from", "to"])}
-        >
-          Convert
-        </Convert>
+        <Convert type="submit">Convert</Convert>
       </Form>
       <div></div>
     </StyledConverter>
   );
 };
+
+// DATA= CURRENCIES SPRAWDZIC
