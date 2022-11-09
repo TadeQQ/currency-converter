@@ -1,13 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+import { QueryClient } from "@tanstack/react-query";
+import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
+import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   ConverterPage,
@@ -53,13 +49,20 @@ const router = createBrowserRouter([
 ]);
 const queryClient = new QueryClient();
 
+const persister = createSyncStoragePersister({
+  storage: window.localStorage,
+});
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <QueryClientProvider client={queryClient}>
+  <PersistQueryClientProvider
+    client={queryClient}
+    persistOptions={{ persister }}
+  >
     <RouterProvider router={router} />
-  </QueryClientProvider>
+  </PersistQueryClientProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
