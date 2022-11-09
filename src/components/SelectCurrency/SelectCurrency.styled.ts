@@ -3,6 +3,8 @@ import { styled } from "@stitches/react";
 import { violet, mauve, blackA } from "@radix-ui/colors";
 import * as SelectPrimitive from "@radix-ui/react-select";
 
+export type RadixSelectProps = SelectPrimitive.SelectProps;
+
 const StyledTrigger = styled(SelectPrimitive.SelectTrigger, {
   all: "unset",
   display: "inline-flex",

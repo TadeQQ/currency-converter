@@ -1,4 +1,4 @@
-import React from "react";
+import React, { HtmlHTMLAttributes } from "react";
 import {
   Select,
   SelectTrigger,
@@ -10,16 +10,23 @@ import {
   SelectIcon,
   SelectItemText,
   SelectItemIndicator,
+  RadixSelectProps,
 } from "./SelectCurrency.styled";
 import { CheckIcon, ChevronDownIcon } from "@radix-ui/react-icons";
+import { useRef } from "react";
 
-interface SelectCurrencyProps {
+interface SelectCurrencyProps extends RadixSelectProps {
   data?: [string, string][];
 }
-export const SelectCurrency = ({ data }: SelectCurrencyProps) => {
-  console.log(data);
+
+///tutaj.
+// React.forwardRef<
+//   HTMLSelectElement,
+//   SelectCurrencyProps
+// >
+export const SelectCurrency = ({ data, ...restProps }: SelectCurrencyProps) => {
   return (
-    <Select>
+    <Select {...restProps}>
       <SelectTrigger>
         <SelectValue placeholder="Select Currency"></SelectValue>
         <SelectIcon>
