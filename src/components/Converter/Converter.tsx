@@ -11,7 +11,7 @@ import { useFetchCurrencies } from "../../Hooks/useFetchCurrencies";
 import { useConvertCurrency } from "../../Hooks/convert/useConvertCurrency";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-
+import { Routes } from "../../routes";
 export const Converter = () => {
   const navigate = useNavigate();
   const { currencies, isLoading } = useFetchCurrencies({});
@@ -26,7 +26,7 @@ export const Converter = () => {
   } = useConvertCurrency({
     onError: () => console.log(errors),
     onSuccess: (data) => {
-      navigate("/history");
+      console.log(data);
     },
   });
 
@@ -79,5 +79,3 @@ export const Converter = () => {
     </StyledConverter>
   );
 };
-
-// DATA= CURRENCIES SPRAWDZIC
