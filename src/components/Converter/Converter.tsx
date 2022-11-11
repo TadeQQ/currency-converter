@@ -10,9 +10,10 @@ import { SelectCurrency } from "../SelectCurrency/SelectCurrency";
 import { useFetchCurrencies } from "../../Hooks/useFetchCurrencies";
 import { useConvertCurrency } from "../../Hooks/convert/useConvertCurrency";
 import { useForm, Controller } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Routes } from "../../routes";
 export const Converter = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const { currencies, isLoading } = useFetchCurrencies({});
   const {
@@ -25,9 +26,11 @@ export const Converter = () => {
     query,
   } = useConvertCurrency({
     onError: () => console.log(errors),
-    onSuccess: (data) => {
-      console.log(data);
-    },
+    onSuccess: () =>
+      // (data) => {
+      //   console.log(data);
+      // },
+      navigate("/history"),
   });
 
   return (

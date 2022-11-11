@@ -3,7 +3,7 @@ import { useLoaderData, LoaderFunctionArgs } from "react-router-dom";
 import { useHistoryConvert } from "../Hooks/useHistoryConvert";
 
 export const historyPageLoader = (loaderArgs: LoaderFunctionArgs) => {
-  console.log(loaderArgs.params);
+  // console.log(loaderArgs.params);
   return "historical";
 };
 
