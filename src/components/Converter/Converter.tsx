@@ -26,11 +26,10 @@ export const Converter = () => {
     query,
   } = useConvertCurrency({
     onError: () => console.log(errors),
-    onSuccess: () =>
-      // (data) => {
-      //   console.log(data);
-      // },
-      navigate("/history"),
+    onSuccess: () => (data) => {
+      console.log(data);
+    },
+    // navigate("/history"),
   });
 
   return (
