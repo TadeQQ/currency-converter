@@ -8,6 +8,9 @@ export function App() {
     <Container>
       <Header />
       <Link to={Routes.HISTORY}>Historical page</Link>
+      {
+        //Navbar here
+      }
       <Outlet />
     </Container>
   );
