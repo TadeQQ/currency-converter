@@ -1,6 +1,5 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useForm } from "react-hook-form";
 import {
   CurrenciesServices,
   ConvertCurrenciesResponse,
@@ -13,8 +12,6 @@ export const useConvertCurrency = ({
   onError,
   onSuccess,
 }: ResultHandler<ConvertCurrenciesResponse>) => {
-  const [isPending, setIsPending] = useState(false);
-
   const { watch, handleSubmit, ...restForm } = useConvertCurrencyForm();
   const { from, to, amount } = watch();
 
