@@ -15,8 +15,12 @@ export const HistoryPage = () => {
   return (
     <div>
       HistoryPage
-      {history.map((el) => (
-        <li key={el.info.timestamp}>{JSON.stringify(el.query)}</li>
+      {history?.map((el) => (
+        <li key={el?.info.timestamp}>
+          <div>{el?.query.amount}</div>
+          <div>{el?.query.from}</div>
+          <div>{el?.query.to}</div>
+        </li>
       ))}
     </div>
   );

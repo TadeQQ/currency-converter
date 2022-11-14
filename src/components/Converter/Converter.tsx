@@ -25,11 +25,11 @@ export const Converter = () => {
     },
     query,
   } = useConvertCurrency({
-    onError: () => console.log(errors),
-    onSuccess: () => (data) => {
-      console.log(data);
-    },
-    // navigate("/history"),
+    onError: () => console.log(errors, "błąd"),
+    onSuccess: () => navigate(Routes.HISTORY),
+    //  (data) => {
+    //   console.log(data);
+    // },
   });
 
   return (
