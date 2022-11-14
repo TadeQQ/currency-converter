@@ -10,18 +10,19 @@ export const historyPageLoader = (loaderArgs: LoaderFunctionArgs) => {
 export const HistoryPage = () => {
   const data = useLoaderData();
   const { history } = useHistoryConvert();
-
   console.log(data);
   return (
     <div>
-      HistoryPage
-      {history?.map((el) => (
-        <li key={el?.info.timestamp}>
-          <div>{el?.query.amount}</div>
-          <div>{el?.query.from}</div>
-          <div>{el?.query.to}</div>
-        </li>
-      ))}
+      <div>Converts history: </div>
+      <ul>
+        {history?.map((el) => (
+          <li key={el?.info.timestamp}>
+            {el?.query.amount
+              ? `${el?.query.from} to ${el?.query.to} = ${el?.result}`
+              : "Pusty request"}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
