@@ -19,7 +19,7 @@ export const HistoryPage = () => {
           <li key={el?.info.timestamp}>
             {el?.query.amount
               ? `${el?.query.from} to ${el?.query.to} = ${el?.result}`
-              : "Pusty request"}
+              : "Please reload page"}
           </li>
         ))}
       </ul>
