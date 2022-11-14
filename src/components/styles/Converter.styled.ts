@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledConverter = styled.div`
+const StyledConverter = styled.div`
   background-color: #282c34;
   color: white;
   border-radius: 20px;
@@ -8,12 +8,11 @@ export const StyledConverter = styled.div`
   font-family: sans-serif;
 `;
 
-export const Form = styled.form`
+const Form = styled.form`
   display: flex;
   padding: 10px 5px;
 `;
-
-export const Div = styled.div`
+const Div = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,21 +20,12 @@ export const Div = styled.div`
   margin-right: 5px;
 `;
 
-export const Input = styled.input`
+const Input = styled.input`
   margin-top: 5px;
   font-size: 16px;
 `;
 
-export const Swap = styled.button`
-  border-radius: 70%;
-  border: none;
-  background-color: #61dafb;
-  :hover {
-    background-color: gray;
-  }
-`;
-
-export const Convert = styled.button`
+const Convert = styled.button`
   border-radius: 30%;
   border: none;
   background-color: #61dafb;
@@ -43,3 +33,11 @@ export const Convert = styled.button`
     background-color: gray;
   }
 `;
+
+export const ConverterStyles = {
+  StyledConverter,
+  Form,
+  Div,
+  Input,
+  Convert,
+};
