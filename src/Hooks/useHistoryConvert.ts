@@ -13,7 +13,7 @@ export const useHistoryConvert = () => {
     const data = queries.map(
       (query) => query[1]
     ) as ConvertCurrenciesResponse[];
-    console.log(data);
+    console.log("to jest data:", data);
     setHistory(data);
   }, [isRestoring]);
 

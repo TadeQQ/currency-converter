@@ -1,5 +1,5 @@
 import React from "react";
-import { ConverterStyles } from "../styles/Converter.styled";
+import { ConverterStyles } from "./Converter.styled";
 import { SelectCurrency } from "../SelectCurrency/SelectCurrency";
 import { useFetchCurrencies } from "../../Hooks/useFetchCurrencies";
 import { useConvertCurrency } from "../../Hooks/convert/useConvertCurrency";

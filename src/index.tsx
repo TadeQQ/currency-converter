@@ -32,20 +32,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-  {
-    path: "/:cos",
-    element: <div>asd</div>,
-    loader: (args) => {
-      console.log(args.params);
-    },
-  },
-  {
-    path: "/:cos/:id",
-    element: <div>asd</div>,
-    loader: (args) => {
-      console.log(args.params);
-    },
-  },
 ]);
 const queryClient = new QueryClient();
 

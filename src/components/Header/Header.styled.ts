@@ -19,6 +19,14 @@ const rotate = keyframes`
     transform: rotate(360deg);
   }
 `;
+const revert = keyframes`
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+`;
 
 export const Logo = styled.img`
   height: 100px;
@@ -26,7 +34,7 @@ export const Logo = styled.img`
     animation: ${rotate} infinite 20s linear;
   }
   :hover {
-    animation: none;
+    animation: ${revert} infinite 20s linear;
   }
 `;
 
