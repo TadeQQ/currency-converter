@@ -13,6 +13,8 @@ import {
   historyPageLoader,
 } from "./routes";
 
+export const queryClient = new QueryClient();
+
 const router = createBrowserRouter([
   {
     path: Routes.HOME,
@@ -33,10 +35,10 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-const queryClient = new QueryClient();
 
 const persister = createSyncStoragePersister({
   storage: window.localStorage,
+  throttleTime: 0,
 });
 
 const root = ReactDOM.createRoot(
