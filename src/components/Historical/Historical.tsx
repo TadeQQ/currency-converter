@@ -2,26 +2,23 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import { useHistoryConvert } from "../../Hooks/useHistoryConvert";
 import { HistoricalStyles } from "./Historical.styled";
-
+import { format } from "date-fns";
 export const Historical = () => {
-  const data = useLoaderData();
-  const { history } = useHistoryConvert();
-  console.log(data);
+  const { history, clearHistory } = useHistoryConvert();
   return (
     <HistoricalStyles.Historical>
       <HistoricalStyles.Title>Converts history</HistoricalStyles.Title>
-      <ul>
-        {history?.map((el) =>
-          el?.success ? (
-            <li key={el?.info.timestamp}>
-              {el?.query.amount} {el?.query.from} to {el?.query.to} ={" "}
-              {Math.round(el?.result * 100) / 100}
-            </li>
-          ) : (
-            <li>Waiting for next converse</li>
-          )
-        )}
+      <ul style={{ listStyleType: "none" }}>
+        {history?.map((el) => (
+          <HistoricalStyles.ListElement key={el?.info.timestamp}>
+            {el?.query.amount} {el?.query.from} to {el?.query.to} ={" "}
+            {Math.round(el?.result * 100) / 100}
+            {el.date}
+            {/* {format(new Date(el.date), "EEEE LLL y")} */}
+          </HistoricalStyles.ListElement>
+        ))}
       </ul>
+      <button onClick={clearHistory}>clear</button>
     </HistoricalStyles.Historical>
   );
 };
