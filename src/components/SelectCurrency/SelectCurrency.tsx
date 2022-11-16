@@ -24,10 +24,13 @@ interface SelectCurrencyProps extends RadixSelectProps {
 //   HTMLSelectElement,
 //   SelectCurrencyProps
 // >
-export const SelectCurrency = ({ data, ...restProps }: SelectCurrencyProps) => {
+export const SelectCurrency = React.forwardRef<
+  HTMLButtonElement,
+  SelectCurrencyProps
+>(({ data, ...restProps }: SelectCurrencyProps, ref) => {
   return (
     <Select {...restProps}>
-      <SelectTrigger>
+      <SelectTrigger ref={ref}>
         <SelectValue placeholder="Select Currency"></SelectValue>
         <SelectIcon>
           <ChevronDownIcon />
@@ -37,7 +40,7 @@ export const SelectCurrency = ({ data, ...restProps }: SelectCurrencyProps) => {
         <StyledContent>
           <SelectViewport>
             {data?.map(([value, name]) => (
-              <SelectItem value={value}>
+              <SelectItem value={value} key={value}>
                 <SelectItemText>
                   {value} - {name}
                 </SelectItemText>
@@ -51,4 +54,4 @@ export const SelectCurrency = ({ data, ...restProps }: SelectCurrencyProps) => {
       </SelectPortal>
     </Select>
   );
-};
+});
