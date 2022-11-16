@@ -14,6 +14,10 @@ const Historical = styled.div`
   align-items: center;
 `;
 const Title = styled.h3``;
+
+const ListElement = styled.li`
+  margin: 10px 0px;
+`;
 const Form = styled.form`
   display: flex;
   padding: 10px 5px;
@@ -43,8 +47,5 @@ const Convert = styled.button`
 export const HistoricalStyles = {
   Historical,
   Title,
-  Form,
-  Div,
-  Input,
-  Convert,
+  ListElement,
 };
