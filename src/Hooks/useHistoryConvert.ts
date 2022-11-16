@@ -1,21 +1,27 @@
-import { useState, useEffect } from "react";
-import { useQueryClient, useIsRestoring } from "@tanstack/react-query";
+import { useState, useEffect, useCallback } from "react";
+import {
+  useQueryClient,
+  useIsRestoring,
+  QueryFilters,
+  useQueries,
+} from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 import { ConvertCurrenciesResponse } from "../services/CurrenciesServices";
 
 export const useHistoryConvert = () => {
   const queryClient = useQueryClient();
   const isRestoring = useIsRestoring();
-  const [history, setHistory] = useState<ConvertCurrenciesResponse[]>([]);
+  const navigate = useNavigate();
+  const history = useLoaderData() as ConvertCurrenciesResponse[];
 
-  useEffect(() => {
-    const queries = queryClient.getQueriesData({ queryKey: ["convert"] });
-    const data = queries.map(
-      (query) => query[1]
-    ) as ConvertCurrenciesResponse[];
-    console.log("to jest data:", data);
-    setHistory(data);
-  }, [isRestoring]);
+  // const [history, setHistory] = useState<ConvertCurrenciesResponse[]>([]);
 
-  return { history };
+  const clearHistory = useCallback(() => {
+    queryClient.removeQueries({ queryKey: ["convert"] });
+    navigate(0);
+  }, [navigate]);
+
+  return { history, clearHistory };
 };
