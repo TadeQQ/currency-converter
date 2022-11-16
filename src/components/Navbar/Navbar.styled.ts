@@ -13,7 +13,7 @@ const Nav = styled.nav`
   font-weight: bold;
 `;
 
-const Route = styled.a`
+const Route = styled.span`
   color: white;
   margin: 5px;
   transition: transform 0.2s;
