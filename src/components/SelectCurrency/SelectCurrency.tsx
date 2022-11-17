@@ -19,11 +19,6 @@ interface SelectCurrencyProps extends RadixSelectProps {
   data?: [string, string][];
 }
 
-///tutaj.
-// React.forwardRef<
-//   HTMLSelectElement,
-//   SelectCurrencyProps
-// >
 export const SelectCurrency = React.forwardRef<
   HTMLButtonElement,
   SelectCurrencyProps
