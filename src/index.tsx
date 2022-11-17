@@ -23,8 +23,8 @@ const router = createBrowserRouter([
       {
         path: Routes.CONVERTER,
         element: <ConverterPage />,
-        loader: (cos) => {
-          console.log(cos.request);
+        loader: (data) => {
+          console.log(data.request);
         },
       },
       {
