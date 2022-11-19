@@ -18,5 +18,6 @@ export const useHistoryConvert = () => {
     navigate(0);
   }, [navigate]);
 
+  /// refreshing, try to make cond to stop refreshing after click
   return { history, clearHistory };
 };
