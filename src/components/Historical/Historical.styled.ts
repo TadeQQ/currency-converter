@@ -35,10 +35,12 @@ const Input = styled.input`
   font-size: 16px;
 `;
 
-const Convert = styled.button`
-  border-radius: 30%;
+const Clear = styled.button`
+  border-radius: 20px;
   border: none;
   background-color: #61dafb;
+  font-size: 17px;
+  margin-bottom: 10px;
   :hover {
     background-color: gray;
   }
@@ -48,4 +50,5 @@ export const HistoricalStyles = {
   Historical,
   Title,
   ListElement,
+  Clear,
 };
