@@ -14,11 +14,13 @@ export const Historical = () => {
             {el?.query.amount} {el?.query.from} to {el?.query.to} ={" "}
             {Math.round(el?.result * 100) / 100}
             {el.date}
-            {format(new Date(el?.info.timestamp), "EEEE LLL y")}
+            {/* {format(new Date(el?.date), "EEEE LLL y")} */}
           </HistoricalStyles.ListElement>
         ))}
       </ul>
-      <button onClick={clearHistory}>clear</button>
+      <HistoricalStyles.Clear onClick={clearHistory}>
+        clear
+      </HistoricalStyles.Clear>
     </HistoricalStyles.Historical>
   );
 };
