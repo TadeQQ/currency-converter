@@ -1,4 +1,4 @@
-# Currency coveter by TadeQ
+# Currency conveter by TadeQ
 
 It uses Typescript, React, React Hook Form, React Router, React Query, REST API, Radix UI and styled Components.
 
