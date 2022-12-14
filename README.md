@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Currency coveter by TadeQ
 
 It uses Typescript, React, React Hook Form, React Router, React Query, REST API, Radix UI and styled Components.
 
