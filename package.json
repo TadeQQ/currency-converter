@@ -11,9 +11,7 @@
     "@tanstack/query-sync-storage-persister": "^4.14.5",
     "@tanstack/react-query": "^4.12.0",
     "@tanstack/react-query-persist-client": "^4.14.5",
-    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "@types/node": "^16.11.66",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
@@ -56,8 +54,9 @@
     ]
   },
   "devDependencies": {
-    "@types/jest": "^29.4.0",
     "@types/react-router-dom": "^5.3.3",
-    "@types/styled-components": "^5.1.26"
+    "@types/styled-components": "^5.1.26",
+    "cypress": "^12.4.0",
+    "fsevents": "^2.3.2"
   }
 }
