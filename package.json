@@ -54,6 +54,8 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/dom": "^8.20.0",
+    "@testing-library/jest-dom": "^5.16.5",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26",
     "cypress": "^12.4.0",
