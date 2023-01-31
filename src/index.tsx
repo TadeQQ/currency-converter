@@ -1,17 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import reportWebVitals from "./reportWebVitals";
-import { QueryClient } from "@tanstack/react-query";
-import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
-import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import reportWebVitals from './reportWebVitals';
+import { QueryClient } from '@tanstack/react-query';
+import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
+import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import {
   ConverterPage,
   HistoryPage,
   App,
   Routes,
   historyPageLoader,
-} from "./routes";
+} from './routes';
 
 export const queryClient = new QueryClient();
 
@@ -25,6 +25,7 @@ const router = createBrowserRouter([
         element: <ConverterPage />,
         loader: (data) => {
           console.log(data.request);
+          return null;
         },
       },
       {
@@ -42,7 +43,7 @@ const persister = createSyncStoragePersister({
 });
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById('root') as HTMLElement
 );
 root.render(
   <PersistQueryClientProvider

@@ -1,11 +1,11 @@
-import React from "react";
-import { ConverterStyles } from "./Converter.styled";
-import { SelectCurrency } from "../SelectCurrency/SelectCurrency";
-import { useFetchCurrencies } from "../../Hooks/useFetchCurrencies";
-import { useConvertCurrency } from "../../Hooks/convert/useConvertCurrency";
-import { Controller } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { Routes } from "../../routes";
+import React from 'react';
+import { ConverterStyles } from './Converter.styled';
+import { SelectCurrency } from '../SelectCurrency/SelectCurrency';
+import { useFetchCurrencies } from '../../Hooks/useFetchCurrencies';
+import { useConvertCurrency } from '../../Hooks/convert/useConvertCurrency';
+import { Controller } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { Routes } from '../../routes';
 export const Converter = () => {
   const navigate = useNavigate();
   const { currencies } = useFetchCurrencies({});
@@ -17,7 +17,7 @@ export const Converter = () => {
       formState: { errors },
     },
   } = useConvertCurrency({
-    onError: () => console.log(errors, "błąd"),
+    onError: () => console.log(errors, 'błąd'),
     onSuccess: () => navigate(Routes.HISTORY),
   });
 
@@ -29,7 +29,7 @@ export const Converter = () => {
           <ConverterStyles.Input
             type="number"
             placeholder="amount"
-            {...register("amount", { valueAsNumber: true })}
+            {...register('amount', { valueAsNumber: true })}
           />
           {errors.amount?.message}
         </ConverterStyles.Div>
@@ -49,7 +49,7 @@ export const Converter = () => {
           {errors.from?.message}
         </ConverterStyles.Div>
         <ConverterStyles.Div>
-          <label>To</label>
+          <label htmlFor="to">To</label>
           <Controller
             control={control}
             name="to"
